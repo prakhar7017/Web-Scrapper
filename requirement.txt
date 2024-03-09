@@ -3,3 +3,5 @@ flask_cors
 requests
 bs4
 watchdog
+ssl
+certifi
