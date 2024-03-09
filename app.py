@@ -5,7 +5,7 @@ from urllib.request import urlopen as uReq
 import certifi
 import ssl
 
-context = ssl._create_unverified_context()
+# context = ssl._create_unverified_context()
 
 app = Flask(__name__)
 
@@ -19,7 +19,8 @@ def index():
         try:
             searchString = req.form['content'].replace(" ", "")
             flipkartURL = "https://www.flipkart.com/search?q=" + searchString
-            uClient = uReq(flipkartURL, context=ssl.create_default_context(cafile=certifi.where()))
+            # uClient = uReq(flipkartURL, context=ssl.create_default_context(cafile=certifi.where()))
+            uClient = uReq(flipkartURL)
             flipkartPage = uClient.read()
             uClient.close()
             flipkartHTML = bs(flipkartPage, "html.parser")
